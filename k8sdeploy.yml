@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${JOB_NAME}
+  name: nginx-deployment
   labels:
     app: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      build_number: ${BUILD_NUMBER}
-      app: ${JOB_NAME}
+      app: nginx
   template:
     metadata:
       labels:
         app: nginx
     spec:
       containers:
-      - name: ${JOB_NAME}-container
-        image: ${REGISTRY}/${JOB_NAME}:v$BUILD_NUMBER"
+      - name: nginx
+        image: sreeharshav/rollingupdate:v3
         ports:
         - containerPort: 80
 
