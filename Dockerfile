@@ -15,4 +15,5 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 FROM tomcat:8-jre8
 COPY --from=0 /usr/src/app/target/SpringBootMavenExample-1.3.5.RELEASE.war /usr/local/tomcat/webapps/SpringBootMavenExample-1.3.5.RELEASE.war
 EXPOSE 8080
+CMD [“catalina.sh”, “run”]
 #ENTRYPOINT ["java","-jar","/usr/app/SpringBootMavenExample-1.3.5.RELEASE.war"]
