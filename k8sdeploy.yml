@@ -30,7 +30,7 @@ spec:
     app: nginx
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8090
       targetPort: 8090
       nodePort: 30007
   type: NodePort
